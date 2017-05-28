@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+int [0,100] X; </declaration>
+	<template>
+		<name x="5" y="5">Automated_door</name>
+		<declaration>// Place local declarations here.
+</declaration>
+		<location id="id0" x="-76" y="-314">
+			<name x="-86" y="-348">Open</name>
+		</location>
+		<location id="id1" x="-467" y="-314">
+			<name x="-477" y="-348">Closed</name>
+		</location>
+		<init ref="id1"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-365" y="-212">X&gt;10</label>
+			<nail x="-76" y="-187"/>
+			<nail x="-569" y="-187"/>
+			<nail x="-569" y="-331"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-517" y="-272">X&gt;10</label>
+			<nail x="-467" y="-238"/>
+			<nail x="-535" y="-238"/>
+			<nail x="-535" y="-314"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="guard" x="26" y="-348">X&lt;10</label>
+			<label kind="assignment" x="-58" y="-314">X:=11</label>
+			<nail x="26" y="-314"/>
+			<nail x="26" y="-373"/>
+			<nail x="-76" y="-373"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-306" y="-306">X&lt;10</label>
+		</transition>
+	</template>
+	<system>system Automated_door;</system>
+	<queries>
+	</queries>
+</nta>
